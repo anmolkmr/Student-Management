@@ -1,5 +1,7 @@
 package com.akmr.sm;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -12,15 +14,26 @@ public class Application {
         start();
     }
 
+    private static void setFileInput() {
+        try {
+            in = new Scanner(new FileInputStream("C:\\Users\\kmrsa\\IdeaProjects\\Student-Management\\src\\text.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void setSystemInput() {
+        in = new Scanner(System.in);
+    }
+
     public static void start() {
         studentManager = new StudentManager();
-        in = new Scanner(System.in);
+        setFileInput();
 
         while (true) {
-            System.out.println("Input Request");
             String[] request = in.nextLine().split(" ");
             String[] subArray = Arrays.copyOfRange(request, 1, request.length);
-
+            System.out.println(Arrays.toString(request));
             switch (request[0].toUpperCase()) {
                 case "ADD":
                     Student newStudent = studentManager.makeStudent(subArray);
