@@ -6,10 +6,18 @@ public class StudentManager {
     private static final int SUBJECT_PASSING_THRESHOLD = 33;
     private static final double PASSING_THRESHOLD = 33.33;
 
-    private static ArrayList<Student> students;
+    private ArrayList<Student> students;
 
     public StudentManager() {
         students = new ArrayList<>();
+    }
+
+    public StudentManager(ArrayList<Student> students) {
+        this.students = students;
+    }
+
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
     }
 
     public Student makeStudent(String[] inputValues) {

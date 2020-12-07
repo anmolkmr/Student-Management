@@ -15,6 +15,21 @@ public class Student {
     private int english;
     private int computerScience;
 
+    public Student() {
+    }
+
+    public Student(int rollNo, String name, String fathersName, String address, int physics, int chemistry, int maths, int english, int computerScience) {
+        this.rollNo = rollNo;
+        this.name = name;
+        this.fathersName = fathersName;
+        this.address = address;
+        this.physics = physics;
+        this.chemistry = chemistry;
+        this.maths = maths;
+        this.english = english;
+        this.computerScience = computerScience;
+    }
+
     public int getTotal(){
         return chemistry + physics + computerScience + maths + english;
     }
